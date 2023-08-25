@@ -24,4 +24,7 @@ input{
     .flex{
         flex-direction: column;
     }
+    input{
+        width: 200px;
+    }
 }
