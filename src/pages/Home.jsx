@@ -1,10 +1,11 @@
 import { auth, googleProvider } from "../config/firebase";
 import {
     createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
     signInWithPopup,
-    signOut,
+    signOut, onAuthStateChanged
 } from "firebase/auth";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 import pic2 from "../assets/avanti.png";
@@ -17,27 +18,27 @@ export default function Home() {
 
     const signIn = async () => {
         try {
-            await createUserWithEmailAndPassword(auth, email, password);
+            await signInWithEmailAndPassword(auth, email, password);
         } catch (err) {
-            console.error(err);
+            alert("Email id or password is wrong")
         }
     };
+    
+    // const signInWithGoogle = async () => {
+    //     try {
+    //         await signInWithPopup(auth, googleProvider);
+    //     } catch (err) {
+    //         console.error(err);
+    //     }
+    // };
 
-    const signInWithGoogle = async () => {
-        try {
-            await signInWithPopup(auth, googleProvider);
-        } catch (err) {
-            console.error(err);
-        }
-    };
-
-    const logout = async () => {
-        try {
-            await signOut(auth);
-        } catch (err) {
-            console.error(err);
-        }
-    };
+    // const logout = async () => {
+    //     try {
+    //         await signOut(auth);
+    //     } catch (err) {
+    //         console.error(err);
+    //     }
+    // };
     const navigate = useNavigate();
     return (
         <>
@@ -46,9 +47,9 @@ export default function Home() {
                 <div className="flex flex-col mx-20 text-center ">
                     <br /> <br />
                     <form
-                        onSubmit={() => {
-                            navigate("/details");
-                        }}
+                        // onSubmit={() => {
+                        //     navigate("/details");
+                        // }}
                     >
                         <div className="text-white font-bold text-3xl">
                             SIGN IN
@@ -73,15 +74,15 @@ export default function Home() {
                         </button>
                         <br />
 
-                        <button onClick={signInWithGoogle} className=" bg-blue-700" type="submit">
+                        {/* <button onClick={signInWithGoogle} className=" bg-blue-700" type="submit">
                             {" "}
                             Sign In Google
-                        </button>
+                        </button> */}
                         <br />
-                        <button onClick={logout} className=" bg-blue-700" type="submit">
+                        {/* <button onClick={logout} className=" bg-blue-700" type="submit">
                             {" "}
                             Logout{" "}
-                        </button>
+                        </button> */}
                     </form>
                 </div>
                 <img src={pic2} alt="avanti" height={100} width={700} />
