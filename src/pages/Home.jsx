@@ -46,11 +46,11 @@ export default function Home() {
         <br /> <br />
         <div className="text-white font-bold text-3xl">SIGN IN</div> <br />
       <input
-        placeholder="Email..."
+        placeholder="Enter the Email" className=" px-7"
         onChange={(e) => setEmail(e.target.value)}
         /> <br />
       <input
-        placeholder="Password..."
+        placeholder="Enter the Password" className=" px-7"
         type="password"
         onChange={(e) => setPassword(e.target.value)}
         /> <br />

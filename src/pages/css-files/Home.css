@@ -8,6 +8,7 @@ input{
     color: darksalmon;
     border-radius: 7px;
     height: 40px;
+    width: 300px;
 }
 
 .btn{
