@@ -3,7 +3,7 @@
 export default function Details() {
   return (
     <>
-      Amritanshu
+      <div className=" text-white font-bold text-center">Amritanshu salle karle kuch</div>
     </>
   )
 }
