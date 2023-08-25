@@ -6,7 +6,6 @@ import {
 } from "firebase/auth";
 import { useState } from "react";
 
-import './css-files/LoginPage.css'
 
 import pic2 from '../assets/avanti.png'
 
